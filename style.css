@@ -1,0 +1,58 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Press Start 2P', system-ui, monospace;
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.subtitle {
+  font-size: 32px;
+  margin: 20px 0;
+  color: #00ffff;
+}
+
+.landscape {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  /* display: block; */
+}
+
+.countdown {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ffcc00;
+}
+
+.avatars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.avatar {
+  width: 100px;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 14px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .avatar {
+    width: 70px;
+  }
+}
