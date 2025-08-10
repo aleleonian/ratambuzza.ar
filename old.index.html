@@ -4,34 +4,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ratambuzza: Rio 2025</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Ratambuzza.ar: Rio 2025</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', system-ui, sans-serif;
+      background-color: black;
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Left side */
+    .left {
+      width: 50%;
+      height: 100%;
+      background-image: url('assets/copa.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Right side */
+    .right {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      background-color: #f7f2e4;
+    }
+
+    h1 {
+      margin: 0 0 1rem 0;
+      font-size: 2rem;
+      color: #0d1b2a;
+    }
+
+    h5 {
+      color: #4b463f;
+    }
+
+    #title {
+      text-align: center;
+    }
+
+    #avatars {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      overflow-x: auto;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #0081a7;
+      line-height: 1.6rem;
+      transform: translateZ(0);
+      /* forces hardware acceleration */
+      -webkit-font-smoothing: none;
+      /* try also: antialiased or subpixel-antialiased */
+      image-rendering: pixelated;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      body {
+        flex-direction: column;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+        height: 50%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container">
-    <!-- <h1 class="title">Ratambuzza presents...</h1> -->
-    <h1>RIO 2025</h1>
+  <div class="left"></div>
 
-    <div class="countdown">
-      <span id="days">00</span> days –
-      <span id="hours">00</span> hours –
-      <span id="minutes">00</span> minutes –
-      <span id="seconds">00</span> seconds
+  <div class="right">
+    <div id="title">
+      <h1>RIO 2025</h1>
+      <div id="countdown">
+        <span id="timer"></span>
+      </div>
     </div>
-
-    <img src="assets/copa.jpg" alt="Copacabana Landscape" class="landscape" />
-
-    <div class="avatars">
-      <img src="assets/avatar1.png" class="avatar" alt="Avatar 1" />
-      <img src="assets/avatar2.png" class="avatar" alt="Avatar 2" />
-      <img src="assets/avatar3.png" class="avatar" alt="Avatar 3" />
+    <div id="avatars">
+      <!-- Replace these with real images -->
+      <div class="avatar-container">
+        <img src="assets/avatars/Afro.png" alt="Afro" class="avatar" />
+        <h5>Afro</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Alefa.png" alt="Alefa" class="avatar" />
+        <h5>Alefa</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Boli.png" alt="Boli" class="avatar" />
+        <h5>Boli</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Butis.png" alt="Butis" class="avatar" />
+        <h5>Butis</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Charly.png" alt="Charly" class="avatar" />
+        <h5>Charly</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Depo.png" alt="Depo" class="avatar" />
+        <h5>Depo</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Firulais.png" alt="Firulais" class="avatar" />
+        <h5>Firulais</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Latigo.png" alt="Látigo" class="avatar" />
+        <h5>Látigo</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Mariano.png" alt="Marian" class="avatar" />
+        <h5>Marian</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Patas.png" alt="Patas" class="avatar" />
+        <h5>Patas</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Pato.png" alt="Pato" class="avatar" />
+        <h5>Pato</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Sanchez.png" alt="Sanchez" class="avatar" />
+        <h5>Sanchez</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Topo.png" alt="Topo" class="avatar" />
+        <h5>Topo</h5>
+      </div>
+      <!-- Keep adding avatars -->
     </div>
   </div>
 
-  <script src="countdown.js"></script>
+  <script>
+    // Countdown logic
+    const countdown = document.getElementById('timer');
+    const targetDate = new Date("2025-10-08T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdown.textContent = "Estamos en Rio!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 
 </html>
