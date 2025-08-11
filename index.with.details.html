@@ -188,7 +188,7 @@
 
         .person-dialog header {
             display: flex;
-            align-items: center;
+            /* align-items: center; */
             gap: 1rem;
             margin-bottom: 1rem;
         }
@@ -212,6 +212,11 @@
             display: grid;
             /* grid-template-columns: 1fr 1.2fr; */
             gap: 1rem;
+        }
+
+        #dlgBio {
+            line-height: 1.6;
+            margin: 0;
         }
 
         .kv-grid {
@@ -373,25 +378,28 @@
     <!-- Dialog -->
     <div class="dialog-overlay" id="personOverlay" aria-hidden="true">
         <div class="person-dialog" role="dialog" aria-modal="true" aria-labelledby="dlgTitle">
-            <button class="dlg-close" id="dlgClose" aria-label="Close dialog">✖</button>
+            <!-- <button class="dlg-close" id="dlgClose" aria-label="Close dialog">✖</button> -->
             <header>
                 <img id="dlgAvatar" class="dlg-avatar" alt="">
-                <div>
+                <!-- <div>
                     <h2 id="dlgTitle">Name</h2>
+                </div> -->
+                <div>
+                    <p id="dlgBio"></p>
                 </div>
             </header>
 
-            <div class="dlg-body">
-                <div class="kv-grid" id="kvGrid">
-                    <!-- key:value rows injected here -->
-                </div>
-                <!-- <div class="kv-grid">
+            <!-- <div class="dlg-body">
+                <div class="kv-grid" id="kvGrid"> -->
+            <!-- key:value rows injected here -->
+            <!-- </div> -->
+            <!-- <div class="kv-grid">
           <div class="kv-key">Status</div><div class="kv-val" id="kvStatus">Ready</div>
           <div class="kv-key">Role</div><div class="kv-val" id="kvRole">Adventurer</div>
           <div class="kv-key">Catchphrase</div><div class="kv-val" id="kvCatch">“Vamo’ arriba”</div>
           <div class="kv-key">Fav Drink</div><div class="kv-val" id="kvDrink">Caipirinha</div>
         </div> -->
-            </div>
+            <!-- </div> -->
 
             <div class="dlg-actions">
                 <button class="btn" id="dlgCloseBottom">Close</button>
@@ -429,7 +437,8 @@
                     "Otros apodos:": "Gusano",
                     "Talento:": "No ronca.",
                     "Superpoder:": "Fundir restaurantes."
-                }
+                },
+                bio: "También conocido como 'Gusano' desde chico anheló el sueño Americano. Su talento más grande es no roncar a pesar del nazo que tiene. Su último gran logro? Fundir un restaurant."
             },
             "Alefa": {
                 avatar: "assets/avatars/Alefa.png",
@@ -437,7 +446,8 @@
                     "Otros apodos:": "Osketti",
                     "Superpoder:": "Te festeja todos los chistes.",
                     "Secreto:": "Es novio de Palermo."
-                }
+                },
+                bio: "También conocido como Oscar, es el público ideal porque te festeja todos los chistes. Vive atormentado por una pesadilla recurrente en donde una pala lo persigue para trabajar en el jardín de la casa de su familia en Pinamar."
             },
             "Boli": {
                 avatar: "assets/avatars/Boli.png",
@@ -445,28 +455,32 @@
                     "Nombre completo:": "Mónica Brenta Depilación",
                     "Master en:": "Chistes de gangosos",
                     "Talento:": "El helicóptero",
-                }
+                },
+                bio: "Es dueño de una cadena de locales de depilación definitiva. Lo llaman el J.R.R Tolkien de Villa Sarmiento por su capacidad para bolasear. Posee un conocimiento enciclopédico de chistes de gansosos."
             },
-            "Butis": { avatar: "assets/avatars/Butis.png", traits: { "Superpoder:": "Es la rata más grande", "Talento:": "Tiene el puño más cerrado que un bebé.", "Nunca dijo:": "Vayamos a gastar dinero. " } },
-            "Charly": { avatar: "assets/avatars/Charly.png", traits: { "Otros apodos:": "Carlitos", "Superpoder:": "Consigue las mejores achuras del universo.", "Nunca dijo:": "Nada. No emite palabra desde 1993." } },
-            "Depo": { avatar: "assets/avatars/Depo.png", traits: { "Otros apodos:": "Dr. G, Antreli, Galmácido.", "Talento:": "Come telas de arañas.", "En otra vida fue:": "Steve-O de Jackass y Ozzy Osbourne." } },
-            "Firulais": { avatar: "assets/avatars/Firulais.png", traits: { "Superpoder": "Gigoló", "Power‑Up": "QA humano", "Nunca dijo:": "No puedo, tengo que trabajar." } },
-            "Látigo": { avatar: "assets/avatars/Latigo.png", traits: { "Origen": "CABA", "Power‑Up": "Narrador", "Talento": "Resumen en 30s", "Team": "Mate amargo" } },
-            "Marian": { avatar: "assets/avatars/Mariano.png", traits: { "Origen": "Mendoza", "Power‑Up": "GPS interno", "En un día puede:": "Escribir un libro, viajar a china, sacarle un pepino del orto a un paciente.", "Nadie sabe como:": "Todavía no lo rajaron de la casa." } },
-            "Patas": { avatar: "assets/avatars/Patas.png", traits: { "Origen": "Tandil", "Power‑Up": "Cocinero", "Talento": "Sartenazo perfecto", "Team": "Caipiroska" } },
-            "Pato": { avatar: "assets/avatars/Pato.png", traits: { "Origen": "San Isidro", "Power‑Up": "Cambio exacto", "Talento": "Regatea sonriendo", "Team": "Chope helado" } },
-            "Sanchez": { avatar: "assets/avatars/Sanchez.png", traits: { "Origen": "Neuquén", "Power‑Up": "Memoria prodigio", "Talento": "Citas textuales", "Team": "Café con leche" } },
-            "Topo": { avatar: "assets/avatars/Topo.png", traits: { "Origen": "Lomas", "Lo llevamos porque:": "Hace buenos desayunos.", "Superpoder": "Correr sin doblar las rodillas."} }
+            "Butis": {
+                avatar: "assets/avatars/Butis.png", traits: { "Superpoder:": "Es la rata más grande", "Talento:": "Tiene el puño más cerrado que un bebé.", "Nunca dijo:": "Vayamos a gastar dinero. " },
+                bio: "La rata más grande del condado, tiene el puño más cerrado que un bebé. Prefiere perder un brazo antes que pagar un sobreprecio. Es capaz de sobrevivir varios días internado en una montaña nevada alimentándose de un sánguche. "
+            },
+            "Charly": { avatar: "assets/avatars/Charly.png", traits: { "Otros apodos:": "Carlitos", "Superpoder:": "Consigue las mejores achuras del universo.", "Nunca dijo:": "Nada. No emite palabra desde 1993." }, bio: "El dealer de achuras oficial del grupo. Sus mollejas de corazón no tienen rival. Frase que nunca dijo: todas. No pronuncia palabra desde 1993." },
+            "Depo": { avatar: "assets/avatars/Depo.png", traits: { "Otros apodos:": "Dr.G, Antreli, Galmácido.", "Talento:": "Come telas de arañas.", "En otra vida fue:": "Steve-O de Jackass y Ozzy Osbourne." }, bio: "También conocido como: Antreli, Galmácido o Dr. G.\n\r Si Steve-O de Jackass y Ozzy Osbourne hubieran tenido un hijo, sería Albertito. Ahora es un padre de familia pero en sus años mozos, supo tranzarse una bolsa de basura." },
+            "Firulais": { avatar: "assets/avatars/Firulais.png", traits: { "Superpoder": "Gigoló", "Power‑Up": "QA humano", "Nunca dijo:": "No puedo, tengo que trabajar." }, bio: "Bom-vivant sin igual. Es el último gourmand. En una picada preparada por él, hay quesos de los 5 continentes y mortadela hecha con carne de unicornio. Frase que nunca dijo: 'No puedo irme de viaje, tengo que trabajar.'" },
+            "Látigo": { avatar: "assets/avatars/Latigo.png", traits: { "Origen": "CABA", "Power‑Up": "Narrador", "Talento": "Resumen en 30s", "Team": "Mate amargo" }, bio: "Hechicero oficial del grupo. Durante muchos años de su vida buscó maneras de no tener que trabajar pero fracasó rotundamente. Tiene muy buenos trucos pero el gran milagro que nadie explica es como una mujer 14 años menor que él le terminó dando bola." },
+            "Marian": { avatar: "assets/avatars/Mariano.png", traits: { "Origen": "Mendoza", "Power‑Up": "GPS interno", "En un día puede:": "Escribir un libro, viajar a china, sacarle un pepino del orto a un paciente.", "Nadie sabe como:": "Todavía no lo rajaron de la casa." }, bio: "Hiperactivo como nadie. En un mismo día el doctor es capaz de: escribir un libro, viajar a china, sacarle un pepino del culo a un paciente. Hace poco rompió el record de mayor cantidad de días consecutivos de permanencia en su casa: 3." },
+            "Patas": { avatar: "assets/avatars/Patas.png", traits: { "Origen": "Tandil", "Power‑Up": "Cocinero", "Talento": "Sartenazo perfecto", "Team": "Caipiroska" }, bio: "Titán de las finanzas, empresario sin igual. Comenzó bien abajo limpiando baños en Constitución. Un buen día tuvo la idea de crear sus propios productos de limpieza y el resto es historia. Borracho." },
+            "Pato": { avatar: "assets/avatars/Pato.png", traits: { "Origen": "San Isidro", "Power‑Up": "Cambio exacto", "Talento": "Regatea sonriendo", "Team": "Chope helado" }, bio: "Piloto enduro, empresario gastronómico, modelo publicitario. Otro que ya no sabe que hacer para rajarse de la casa. Compite cabeza a cabeza con Butis a ver quién tiene más alma de roedor." },
+            "Sanchez": { avatar: "assets/avatars/Sanchez.png", traits: { "Origen": "Neuquén", "Power‑Up": "Memoria prodigio", "Talento": "Citas textuales", "Team": "Café con leche" }, bio: "Influencer de redes sociales en el mundo de bienes raíces. Lo llaman 'El hacedor'. Nunca vendió un departamento y publica un video cada 3 meses pero igual le tenemos fé." },
+            "Topo": { avatar: "assets/avatars/Topo.png", traits: { "Origen": "Lomas", "Lo llevamos porque:": "Hace buenos desayunos.", "Superpoder": "Correr sin doblar las rodillas." }, bio: "Ex chef de cuisine y actual empresario gastronómico. Carece de sentimientos, la única vez que derramó una lágrima fue porque la policía lo gaseó en la cancha de Boca. El día que correr sin doblar las rodillas sea un deporte olímpico, este pibe va a estar a la altura de Husain Bolt." }
         };
 
         // ===== Dialog wiring =====
         const overlay = document.getElementById('personOverlay');
-        const dlgClose = document.getElementById('dlgClose');
+        // const dlgClose = document.getElementById('dlgClose');
         const dlgCloseBottom = document.getElementById('dlgCloseBottom');
         const dlgAvatar = document.getElementById('dlgAvatar');
         const dlgTitle = document.getElementById('dlgTitle');
         const kvGrid = document.getElementById('kvGrid');
-
+        const dlgBio = document.getElementById('dlgBio');
         let lastFocus = null;
 
         function openDialog(personName) {
@@ -475,22 +489,23 @@
 
             dlgAvatar.src = data.avatar;
             dlgAvatar.alt = personName;
-            dlgTitle.textContent = personName;
-
+            // dlgTitle.textContent = personName;
+            dlgBio.textContent = data.bio;
             // wipe + rebuild kv grid
-            kvGrid.innerHTML = '';
-            Object.entries(data.traits).forEach(([k, v]) => {
-                const key = document.createElement('div');
-                key.className = 'kv-key'; key.textContent = k;
-                const val = document.createElement('div');
-                val.className = 'kv-val'; val.textContent = v;
-                kvGrid.appendChild(key); kvGrid.appendChild(val);
-            });
+
+            // kvGrid.innerHTML = '';
+            // Object.entries(data.traits).forEach(([k, v]) => {
+            //     const key = document.createElement('div');
+            //     key.className = 'kv-key'; key.textContent = k;
+            //     const val = document.createElement('div');
+            //     val.className = 'kv-val'; val.textContent = v;
+            //     kvGrid.appendChild(key); kvGrid.appendChild(val);
+            // });
 
             lastFocus = document.activeElement;
             overlay.setAttribute('aria-hidden', 'false');
             // focus close button for accessibility
-            dlgClose.focus();
+            // dlgClose.focus();
             document.addEventListener('keydown', onKeydown);
             // prevent body scroll behind dialog (desktop already fixed, mobile needs this)
             document.body.style.overflow = 'hidden';
@@ -507,7 +522,7 @@
             if (e.key === 'Escape') closeDialog();
             // very light focus trap: loop close buttons
             if (e.key === 'Tab') {
-                const focusables = [dlgClose, dlgCloseBottom];
+                const focusables = [dlgCloseBottom];
                 const idx = focusables.indexOf(document.activeElement);
                 if (idx === -1) return;
                 e.preventDefault();
@@ -520,7 +535,7 @@
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) closeDialog();
         });
-        dlgClose.addEventListener('click', closeDialog);
+        // dlgClose.addEventListener('click', closeDialog);
         dlgCloseBottom.addEventListener('click', closeDialog);
 
         // Delegate clicks from grid of avatars
