@@ -168,6 +168,8 @@
         }
 
         .person-dialog {
+            max-height: 90vh;
+            overflow: auto;
             background: var(--cream);
             color: var(--ink);
             max-width: min(720px, 92vw);
@@ -282,13 +284,37 @@
                 padding: 1rem;
             }
 
+            .person-dialog header {
+                flex-direction: column;
+                /* row -> column */
+                align-items: center;
+                /* center the avatar */
+                text-align: left;
+                /* keep paragraph left-aligned */
+                gap: .75rem;
+            }
+
             .dlg-body {
                 grid-template-columns: 1fr;
             }
 
             .dlg-avatar {
-                width: 160px;
-                height: 160px;
+                width: 180px;
+                /* a touch larger looks better on mobile */
+                height: 180px;
+                margin-bottom: .25rem;
+            }
+
+            #dlgBio {
+                line-height: 1.6;
+                margin: 0;
+                max-width: 42ch;
+                /* comfortable measure on phones */
+            }
+
+            .dlg-actions {
+                justify-content: center;
+                /* center the CLOSE button on mobile */
             }
 
             .btn {
