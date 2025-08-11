@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratambuzza.ar: Rio 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico"> 
+  <style>
+    :root {
+      --cream: #f7f2e4;
+      --navy: #0d1b2a;
+      --label: #4b463f;
+      --accent: #0081a7;
+    }
+
+    /* Base */
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Press Start 2P', system-ui, sans-serif;
+      color: white;
+      background: black;
+      display: flex;
+      /* Desktop: split screen */
+      height: 100vh;
+      overflow: hidden;
+      /* desktop keeps only right side scrolling */
+    }
+
+    /* Left side (image) */
+    .left {
+      width: 50%;
+      height: 100%;
+      background-image: url('assets/copa.jpg');
+      background-size: cover;
+      background-position: center;
+      flex: 0 0 50%;
+    }
+
+    /* Right side (content) */
+    .right {
+      width: 50%;
+      height: 100%;
+      background: var(--cream);
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      overflow: auto;
+      /* desktop: only right side scrolls */
+    }
+
+    h1 {
+      margin: 0 0 1rem 0;
+      font-size: 2rem;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    h5 {
+      color: var(--label);
+      margin: 0.5rem 0 0;
+    }
+
+    #title {
+      text-align: center;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: var(--accent);
+      line-height: 1.6rem;
+      transform: translateZ(0);
+      -webkit-font-smoothing: none;
+      image-rendering: pixelated;
+    }
+
+    #avatars {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      /* no vertical overflow here—let the container/page handle it */
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+    }
+
+    /* --- Mobile: stack and let the entire page scroll --- */
+    @media (max-width: 800px) {
+      body {
+        flex-direction: column;
+        height: auto;
+        /* allow page to grow */
+        overflow: auto;
+        /* whole page scrolls */
+      }
+
+      .left {
+        width: 100%;
+        height: 50vh;
+        /* top half visual */
+        flex: 0 0 auto;
+      }
+
+      .right {
+        width: 100%;
+        min-height: 50vh;
+        /* at least bottom half, can grow taller */
+        height: auto;
+        overflow: visible;
+        /* no inner scroll; page does it */
+        padding: 1.25rem;
+      }
+
+      .avatar {
+        width: 90px;
+        height: 90px;
+      }
+
+      #countdown {
+        font-size: 1rem;
+        line-height: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="left"></div>
+
+  <div class="right">
+    <div id="title">
+      <h1>RIO 2025</h1>
+      <div id="countdown"><span id="timer"></span></div>
+    </div>
+
+    <div id="avatars">
+      <div class="avatar-container">
+        <img src="assets/avatars/Afro.png" alt="Afro" class="avatar" />
+        <h5>Afro</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Alefa.png" alt="Alefa" class="avatar" />
+        <h5>Alefa</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Boli.png" alt="Boli" class="avatar" />
+        <h5>Boli</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Butis.png" alt="Butis" class="avatar" />
+        <h5>Butis</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Charly.png" alt="Charly" class="avatar" />
+        <h5>Charly</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Depo.png" alt="Depo" class="avatar" />
+        <h5>Depo</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Firulais.png" alt="Firulais" class="avatar" />
+        <h5>Firulais</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Latigo.png" alt="Látigo" class="avatar" />
+        <h5>Látigo</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Mariano.png" alt="Marian" class="avatar" />
+        <h5>Marian</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Patas.png" alt="Patas" class="avatar" />
+        <h5>Patas</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Pato.png" alt="Pato" class="avatar" />
+        <h5>Pato</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Sanchez.png" alt="Sanchez" class="avatar" />
+        <h5>Sanchez</h5>
+      </div>
+      <div class="avatar-container">
+        <img src="assets/avatars/Topo.png" alt="Topo" class="avatar" />
+        <h5>Topo</h5>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Countdown logic
+    const countdown = document.getElementById('timer');
+    const targetDate = new Date("2025-10-08T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdown.textContent = "Estamos en Rio!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+
+</html>
